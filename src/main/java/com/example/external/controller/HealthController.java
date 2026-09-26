@@ -12,13 +12,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v2/health")
+@RequestMapping("/api/v1/health")
 @Slf4j
 public class HealthController {
     @GetMapping({"", "/{message}"})
     public ResponseEntity<Map<String, String>> getHealth(@PathVariable @Nullable String message) {
         Map<String, String> response = new HashMap<>();
-        response.put("application-id", "2");
+        response.put("application-id", "1");
         response.put("status", "ok");
         response.put("log", message != null ? message : "null");
         log.warn("Response: {}", response);
